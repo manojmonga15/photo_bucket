@@ -1,4 +1,4 @@
-photo_gallery
+PhotoBucket
 =============
 
 A sample application with datamapper

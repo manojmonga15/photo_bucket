@@ -1,0 +1,18 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+ html: {class: 'hbs-example form-verticle'}, defaults: { input_html: {
+  class: 'form-control input-lg'}}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.input :name, required: true, label: false, input_html: {placeholder: 'Name'} %>
+    <%= f.input :email, required: true, label: false, input_html: {placeholder: 'Email'} %>
+    <%= f.input :password, required: true, label: false, input_html: {placeholder: 'Password'} %>
+    <%= f.input :password_confirmation, required: true, label: false, input_html: {placeholder: 'Confirm Password'} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
