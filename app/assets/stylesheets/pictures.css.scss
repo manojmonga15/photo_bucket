@@ -1,0 +1,98 @@
+.picture-content {
+  margin-top: 10px;
+}
+
+.picture-well {
+  position: relative;
+
+  .pb-picture-column {
+    padding: 0;
+    height: 410px;
+    .pb-picture {
+      width: 100%;
+      max-height: 415px;
+    }
+  }
+
+  .comments-block {
+    position: static;
+    font-size: 13px;
+
+    .pb-desc {
+      border-bottom: 1px solid #2b3e50;
+      padding-bottom: 5px;
+
+      .pb-username {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .user-detail {
+      width: 50px;
+      height: 50px;
+      margin: 5px 15px 5px 5px;
+    }
+
+    .comments {
+      margin: 10px 0;
+      height: 220px;
+      overflow-y: auto;
+
+      .individual-comment {
+        background-color: #2e3f52;
+        border-bottom: 1px solid #4e5d6c;
+        padding: 2px;
+
+        .comment-text {
+          margin-left: 70px;
+        }
+      }
+    }
+
+    .load-comments {
+      font-size: 16px;
+    }
+
+    .comment-form {
+      position: absolute;
+      bottom: 20px;
+
+      .control-group.comment_comment {
+        width: 83%;
+        float: left;
+        margin-right: 10px;
+      }
+
+      .pb-btn-custom {
+        height: 75px;
+        background-color: #2b3e50;
+      }
+    }
+  }
+}
+
+.pb-upload-pic {
+  margin-top: 25px;
+}
+
+.pb-new-picture {
+  .controls {
+    input.string {
+      width: 400px;
+    }
+
+    textarea {
+      width: 600px;
+    }
+
+    input.file {
+      height: 35px;
+      margin: 5px 0;
+      padding: 0 5px;
+    }
+  }
+  .form-actions {
+    margin-top: 10px;
+  }
+}

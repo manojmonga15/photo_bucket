@@ -11,7 +11,46 @@
  *= require_self
  *= require_tree .
  */
+.navbar {
+  font-size: 13px !important;
+  border-bottom: 1px solid #2b3e50 !important;
 
-.navbar-brand h3 {
-  margin: -5px 0 0;
+  .navbar-brand h3 {
+    margin: -5px 0 0;
+  }
+
+  .navbar-right {
+    .user-detail {
+      margin-right: 5px;
+      img {
+        width: 25px;
+      }
+    }
+  }
+
+  .navbar-form {
+    margin-top: 4px;
+
+    .controls {
+      float: left;
+      margin-right: 5px;
+
+      input {
+        width: 200px;
+      }
+    }
+
+    .btn {
+      height: 31px;
+      padding-top: 3px;
+    }
+  }
+}
+
+.pb-login-box {
+  margin: 12% 28%;
+}
+
+.pb-signup-form {
+  margin-top: 15px;
 }

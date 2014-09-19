@@ -7,35 +7,40 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><h3><%= render 'layouts/shared/logo' %></h3></a>
+      <%= link_to "<h3>#{render 'layouts/shared/logo'}</h3>".html_safe, root_path, class: "navbar-brand" %>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a><%#= link_to "Default", controller: 'pages', action: 'default' %></li>
-            <li class="divider"></li>
-          </ul>
-        </li>
-      </ul>
+      <% if current_user %>
+        <ul class="nav navbar-nav">
+          <li class="<%= 'active' if controller.controller_name == 'pictures' and controller.action_name == 'index' %>">
+            <%= link_to 'My Bucket!', my_bucket_path %>
+          </li>
+          <li class="<%= 'active' if controller.controller_name == 'pictures' and controller.action_name == 'world_bucket' %>">
+            <%= link_to 'World Bucket!', world_bucket_path %>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="javascript:void(0);">
+              <div class="user-detail pull-left">
+                <%= image_tag('user-placeholder.png') %>
+              </div>
+              <%= current_user.name %>
+            </a>
+          </li>
+          <li>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+      <% else %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+          html: {class: 'navbar-form navbar-right'}, defaults: { input_html: {
+          class: 'form-control input-sm'}}) do |f| %>
+            <%= f.input :email, required: false, label: false, wrapper: false, input_html: {placeholder: 'Email'} %>
+            <%= f.input :password, required: false, label: false, wrapper: false, input_html: {placeholder: 'Password'} %>
+            <%= f.submit 'Login', class: 'btn btn-success' %>
+        <% end %>
+      <% end %>
     </div><!--/.nav-collapse -->
   </div>
 </div>

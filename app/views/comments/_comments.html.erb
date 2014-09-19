@@ -1,0 +1,11 @@
+<% @comments.each do |comment| %>
+  <div class="individual-comment">
+    <div class="user-detail pull-left">
+      <%= image_tag('user-placeholder.png') %>
+    </div>
+    <div class="comment-text">
+      <%= comment.comment %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@ gem 'activeresource', RAILS_VERSION, :require => 'active_resource'
 gem 'railties',       RAILS_VERSION, :require => 'rails'
 gem 'tzinfo',         '~> 0.3.32'
 
-gem 'dm-rails',               '~> 1.2.1'
+gem 'dm-rails',       '~> 1.2.1'
 #gem 'dm-sqlite-adapter', DM_VERSION
 
 # You can use any of the other available database adapters.
@@ -37,6 +37,8 @@ gem 'dm-aggregates',   DM_VERSION
 gem 'dm-timestamps',   DM_VERSION
 gem 'dm-observer',     DM_VERSION
 gem 'dm-devise'
+gem 'dm-paperclip'
+gem 'dm-chunked_query'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -49,6 +51,9 @@ end
 
 gem 'jquery-rails', '~> 2.0.1'
 gem 'simple_form'
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'will_paginate', '~> 3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.1'

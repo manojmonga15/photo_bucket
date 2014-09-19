@@ -9,6 +9,7 @@ require 'sprockets/railtie'
 require 'action_mailer/railtie'
 require 'active_resource/railtie'
 require 'rails/test_unit/railtie'
+require "will_paginate/data_mapper"
 
 
 if defined?(Bundler)

@@ -1,0 +1,8 @@
+<% @pictures.each do |photo| %>
+  <% unless photo.avatar.blank? %>
+    <div class="col-xs-6 col-sm-4 col-md-3" id="media-<%= photo.id %>">
+      <%= link_to image_tag(photo.avatar.url(:thumb), alt: photo.title, class: 'lazy public thumbnail'),
+          photo %>
+    </div>
+  <% end %>
+<% end %>

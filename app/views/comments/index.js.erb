@@ -1,0 +1,7 @@
+<% if @comments.blank? %>
+  $('.comments').html('No Commets yet!');
+<% else %>
+  $('.comments').html('<%= escape_javascript(render "comments") %>');
+  $('.hide-comments').removeClass('hidden');
+  $('.show-comments').addClass('hidden');
+<% end %>

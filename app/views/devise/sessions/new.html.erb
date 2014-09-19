@@ -1,15 +1,20 @@
-<h2>Sign in</h2>
+<div class="col-lg-5 pb-login-box">
+  <div class="well">
+    <h2>Sign in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+      html: {class: 'hbs-example form-verticle'}, defaults: { input_html: {
+      class: 'form-control input-lg'}}) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, required: false, autofocus: true, input_html: {placeholder: 'Email'} %>
+        <%= f.input :password, required: false, input_html: {placeholder: 'Password'} %>
+        <%#= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign in", class: 'btn btn-success' %>
+      </div>
+      <%= render "devise/shared/links" %>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

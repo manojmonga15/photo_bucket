@@ -1,0 +1,6 @@
+<% if @pictures.blank? %>
+  
+<% else %>
+  $('.load-more').remove();
+  $('.pb-pictures-container').append('<%= escape_javascript(render "pictures") %>');
+<% end %>

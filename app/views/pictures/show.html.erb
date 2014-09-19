@@ -1,0 +1,50 @@
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1><%= @picture.title %></h1>
+    </div>
+</div>
+
+<div class="bs-docs-section picture-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="well picture-well">
+        <div class="pb-picture-column col-lg-6">
+          <%= image_tag(@picture.avatar.url(:medium), alt: @picture.title, class: 'pb-picture') %>
+        </div>
+
+        <div class="comments-block col-lg-6">
+          <div class="pb-author">
+            <div class="user-detail pull-left">
+              <%= image_tag('user-placeholder.png') %>
+            </div>
+            <div class="pb-desc">
+              <div class="pb-username">
+                <%= @picture.user.name %>
+              </div>
+              <div class="pb-desc-text">
+                <%= @picture.description %>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="load-comments">
+            <%= link_to 'Show Comments >>', picture_comments_path(@picture), remote: true, class: 'show-comments' %>
+            <%= link_to 'Hide Comments <<', 'javascript:void(0);', class: 'hidden hide-comments' %>
+          </div>
+          <div id="pb-comments-container" class="comments">
+          </div>
+          <%= hidden_field_tag "scrollable-url", picture_comments_path(@picture, page: 0) %>
+          <%= simple_form_for([@picture, @comment], html: { class: 'form-horizontal comment-form'},
+            remote: true, defaults: { input_html: { class: 'form-control' } }) do |f| %>
+            <%= f.input :comment, as: :text, label: false, input_html: { size: '140x2', placeholder: 'Comment...' } %>
+            <div class="form-actions">
+              <%= f.button :submit, "Send", class: 'pb-btn-custom btn-success' %>
+            </div>
+          <% end %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,17 @@
 PhotoBucket::Application.routes.draw do
-  root :to => 'home#index'
+  match 'my_bucket', to: 'pictures#index'
+  match 'world_bucket', to: 'pictures#world_bucket'
+  authenticated :user do
+    root to: 'pictures#world_bucket'
+  end
+
+  root to: 'home#index'
   devise_for :users
+
+  resources :pictures, only: [:index, :show, :create, :new] do
+    get :world_bucket, on: :collection
+    resources :comments, only: [:index, :create]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

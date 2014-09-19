@@ -1,17 +1,15 @@
-<div class="container">
-  <div class="page-header" id="banner">
-    <div class="row">
-      <div class="col-lg-6">
-        <h1>Welcome to <%= render 'layouts/shared/logo' %></h1>
-        <p class="lead"><%= render 'layouts/shared/logo' %> is the platform that enables to create your photo buckets (albums) and show them to the world. So are you ready to beat the world?</p>
-        <p>
-          <%= image_tag("collage.jpg") %>
-        </p>
-      </div>
-      <div class="col-lg-4 pull-right">
-        <div class="well">
-          <%= render 'layouts/shared/signup_form' %>
-        </div>
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Welcome to <%= render 'layouts/shared/logo' %></h1>
+      <p class="lead"><%= render 'layouts/shared/logo' %> is the platform that enables to create your photo buckets (albums) and show them to the world. So are you ready to beat the world?</p>
+      <p>
+        <%= image_tag("collage.jpg") %>
+      </p>
+    </div>
+    <div class="col-lg-4 pull-right pb-signup-form">
+      <div class="well">
+        <%= render 'layouts/shared/signup_form' %>
       </div>
     </div>
   </div>
